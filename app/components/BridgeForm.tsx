@@ -53,6 +53,10 @@ const BridgeForm: React.FC<BridgeFormProps> = ({ addTransaction }) => {
         fetchPolygonBalance();
     }, []);
 
+    const handleMax = () => {
+        setAmount(polygonBalance);
+    };
+
     const handleBridge = async () => {
         if (!window.ethereum) {
             setError("MetaMask is not installed");
@@ -182,13 +186,17 @@ const BridgeForm: React.FC<BridgeFormProps> = ({ addTransaction }) => {
                                 <p className="text-white text-xs">Polygon</p>
                             </div>
                         </div>
-                        <input
-                            type="text"
-                            value={amount}
-                            onChange={(e) => setAmount(e.target.value)}
-                            className="text-white font-bold bg-transparent ml-5 focus:outline-none text-2xl mb-3"
-                            placeholder="0"
-                        />
+                        <div className="flex gap-2 items-center w-full">
+                            <input
+                                type="text"
+                                value={amount}
+                                onChange={(e) => setAmount(e.target.value)}
+                                className="text-white font-bold bg-transparent ml-5 focus:outline-none text-2xl mb-3 w-full"
+                                placeholder="0"
+                            />
+                            <button onClick={handleMax} className="rounded-md px-2 py-1 font-font-bold mr-5 bg-white text-[#535353] text-xs">MAX</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
