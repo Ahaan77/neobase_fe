@@ -194,7 +194,7 @@ const BridgeForm: React.FC<BridgeFormProps> = ({ addTransaction }) => {
                                 className="text-white font-bold bg-transparent ml-5 focus:outline-none text-2xl mb-3 w-full"
                                 placeholder="0"
                             />
-                            <button onClick={handleMax} className="rounded-md px-2 py-1 font-font-bold mr-5 bg-white text-[#535353] text-xs">MAX</button>
+                            <button onClick={handleMax} className="rounded-md px-2 py-1 font-font-bold mr-3 bg-white text-[#535353] text-xs">MAX</button>
                         </div>
 
                     </div>
