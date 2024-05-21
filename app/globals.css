@@ -18,12 +18,15 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  background: 
+    url('/background.png') no-repeat center center fixed,
+    linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
-    )
+    ),
     rgb(var(--background-start-rgb));
+  background-size: cover;
 }
 
 @layer utilities {
