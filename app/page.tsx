@@ -15,7 +15,7 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 items-center sm:items-center mt-4 sm:mt-0 sm:-mt-8 md:-mt-10 lg:-mt-14">
           <p className="font-bold text-left text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px]">Round</p>
           <Link href="/transfer">
-            <button className="px-4 py-2 sm:px-5 sm:py-2 h-10 mt-4 sm:mt-16 font-bold text-white bg-gradient-to-r from-[#0029FF] to-black rounded-full flex gap-3 items-center hover:transition duration-200 hover:duration-200 ease-in-out hover:bg-gradient-to-r hover:from-black hover:to-[#0029FF]">
+            <button className="px-4 py-2 sm:px-5 sm:py-2 h-10 mt-4 sm:mt-16 lg:mt-3 font-bold text-white bg-gradient-to-r from-[#0029FF] to-black rounded-full flex gap-3 items-center hover:transition duration-200 hover:duration-200 ease-in-out hover:bg-gradient-to-r hover:from-black hover:to-[#0029FF]">
               <img src="/wallet.svg" alt="wallet" className="h-6 w-6" />
               Get Started
             </button>
