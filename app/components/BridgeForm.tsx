@@ -65,7 +65,7 @@ const BridgeForm: React.FC<BridgeFormProps> = ({ addTransaction }) => {
         }
 
         if (amount === "" || parseFloat(amount) <= 0) {
-            setError("Transfer amount must be greater than zero");
+            setError("Bridge amount must be greater than zero");
             return;
         }
 
@@ -106,14 +106,13 @@ const BridgeForm: React.FC<BridgeFormProps> = ({ addTransaction }) => {
                                     },
                                 ],
                             });
-                        } catch (addError) {
-                            //@ts-ignore
-                            setError("Failed to add the network to MetaMask: " + (addError.message || addError));
+                        } catch (addError: any) {
+                            setError("Failed to add the Polygon network to MetaMask: " + (addError.message || addError));
                             setLoading(false);
                             return;
                         }
                     } else {
-                        setError("Failed to switch the network: " + (switchError.message || switchError));
+                        setError("Failed to switch to the Polygon network: " + (switchError.message || switchError));
                         setLoading(false);
                         return;
                     }
@@ -145,7 +144,6 @@ const BridgeForm: React.FC<BridgeFormProps> = ({ addTransaction }) => {
 
             const accounts = await web3.eth.getAccounts();
             const amountInWei = web3.utils.toWei(amount, "ether");
-            //@ts-ignore
             const dstChainId = arbitrumConfig.layerZeroChainId;
             const toAddress = Web3.utils.toChecksumAddress(recipient);
             const toAddressBytes = web3.utils.padLeft(toAddress, 64);

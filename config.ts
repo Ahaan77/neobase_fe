@@ -8,6 +8,7 @@ const CONFIG = {
         rpcUrl: 'https://arb1.arbitrum.io/rpc',
         oftContract: '0x9e20461bc2c4c980f62f1B279D71734207a6A356',
         chainId: 42161,
+        layerZeroChainId: 110,
     },
 };
 

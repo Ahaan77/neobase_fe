@@ -1,10 +1,8 @@
 "use client"
 
 import React, { useState } from "react";
-import Topbar from "../components/Topbar";
 import TransferForm from "../components/TransferForm";
 import TransactionTable from "../components/TransactionTable";
-import Navigation from "../components/Navigation";
 
 interface Transaction {
     id: string;
@@ -27,8 +25,6 @@ const Home: React.FC = () => {
     return (
         <div className="relative">
             
-            
-
             <div className="mt-16 flex justify-center">
                 <TransferForm addTransaction={addTransaction} />
             </div>

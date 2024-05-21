@@ -69,7 +69,7 @@ const Topbar: React.FC = () => {
                     ) : (
                         <>
                             <img src="/wallet.svg" alt="wallet" />
-                            Connect Wallet
+                            <p className="text-xs lg:text-base">Connect Wallet</p>
                         </>
                     )}
                 </button>
