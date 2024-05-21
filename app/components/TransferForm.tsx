@@ -56,7 +56,7 @@ const TransferForm: React.FC<TransferFormProps> = ({ addTransaction }) => {
       const networkConfig = CONFIG[network];
 
       const currentChainId = await web3.eth.getChainId();
-      if (currentChainId !== networkConfig.chainId) {
+      if (currentChainId !== BigInt(networkConfig.chainId)) {
         try {
           await window.ethereum.request({
             method: "wallet_switchEthereumChain",
@@ -82,6 +82,7 @@ const TransferForm: React.FC<TransferFormProps> = ({ addTransaction }) => {
                 ],
               });
             } catch (addError) {
+            //@ts-ignore
               setError("Failed to add the network to MetaMask: " + (addError.message || addError));
               setLoading(false);
               return;

@@ -25,7 +25,7 @@ export default function Home() {
         </div>
         <div className="flex gap-20 items center -mt-14">
           <p className="font-bold text-left text-[100px]">Round</p>
-          <Link href="/transfer" to="/transfer"><button
+          <Link href="/transfer"><button
             className="px-5 py-2 h-10 mt-16 font-bold text-white bg-gradient-to-r from-[#0029FF] to-black rounded-full flex gap-3 items-center hover:transition duration-200 hover:duration-200 ease-in-out hover:bg-gradient-to-r hover:from-black hover:to-[#0029FF]"
           >
             <img src="/wallet.svg" alt="wallet" />

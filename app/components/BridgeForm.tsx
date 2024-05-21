@@ -45,7 +45,8 @@ const BridgeForm: React.FC<BridgeFormProps> = ({ addTransaction }) => {
                     setPolygonBalance(web3.utils.fromWei(balance, "ether"));
                 }
             } catch (err) {
-                setError("Failed to fetch Polygon balance: " + (err.message || err));
+                //@ts-ignore
+                setError("Failed to fetch Polygon balance: " + (err?.message || err));
             }
         };
 
@@ -80,7 +81,7 @@ const BridgeForm: React.FC<BridgeFormProps> = ({ addTransaction }) => {
             const arbitrumConfig = CONFIG.arbitrum;
 
             const currentChainId = await web3.eth.getChainId();
-            if (currentChainId !== polygonConfig.chainId) {
+            if (currentChainId !== BigInt(polygonConfig.chainId)) {
                 try {
                     await window.ethereum.request({
                         method: "wallet_switchEthereumChain",
@@ -106,6 +107,7 @@ const BridgeForm: React.FC<BridgeFormProps> = ({ addTransaction }) => {
                                 ],
                             });
                         } catch (addError) {
+                            //@ts-ignore
                             setError("Failed to add the network to MetaMask: " + (addError.message || addError));
                             setLoading(false);
                             return;
@@ -143,6 +145,7 @@ const BridgeForm: React.FC<BridgeFormProps> = ({ addTransaction }) => {
 
             const accounts = await web3.eth.getAccounts();
             const amountInWei = web3.utils.toWei(amount, "ether");
+            //@ts-ignore
             const dstChainId = arbitrumConfig.layerZeroChainId;
             const toAddress = Web3.utils.toChecksumAddress(recipient);
             const toAddressBytes = web3.utils.padLeft(toAddress, 64);
@@ -195,7 +198,7 @@ const BridgeForm: React.FC<BridgeFormProps> = ({ addTransaction }) => {
                 <p className="text-white font-bold text-sm">Balance: {polygonBalance} MATIC</p>
             </div>
             <div className="w-full flex justify-center mt-4">
-                <Image src="/arrow_down.svg" height={20} width={20} />
+                <Image src="/arrow_down.svg" height={20} width={20} alt="arrow_down" />
             </div>
 
             <div className="mx-10 mt-5">
